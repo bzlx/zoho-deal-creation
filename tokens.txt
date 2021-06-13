@@ -1,0 +1,19 @@
+Отправляем запрос чтобы получить временный код
+
+https://accounts.zoho.eu/oauth/v2/auth?response_type=code&client_id=1000.USIIB6G05PF4NRLM9YL1Y1JQIU67RU&scope=AaaServer.profile.Read,ZohoCRM.modules.ALL,ZohoCRM.settings.ALL&redirect_uri=http://127.0.0.1/&prompt=consent
+
+ответ
+http://127.0.0.1/?code=1000.babf5d4ef2d8616dab4ba98a3cb159f4.f23fa7ac0f3b60e8a008e9610398d82a&location=eu&accounts-server=https%3A%2F%2Faccounts.zoho.eu&
+
+используя полученный код делаем POST запрос в POSTMAN
+https://accounts.zoho.com/oauth/v2/token?code=1000.babf5d4ef2d8616dab4ba98a3cb159f4.f23fa7ac0f3b60e8a008e9610398d82a&client_id=1000.USIIB6G05PF4NRLM9YL1Y1JQIU67RU&client_secret=9a2c3ef5b345364c01193f2b7bc450b7e5fae2e4e2&redirect_uri=http://127.0.0.1/&grant_type=authorization_code
+
+в ответе получаем JSON c OAUTH токеном
+{
+    "access_token": "1000.66e6a976702fdc25e27c8225b69a88e6.adbaae8ebae55e33c8f257baf802e856",
+    "api_domain": "https://www.zohoapis.eu",
+    "token_type": "Bearer",
+    "expires_in": 3600
+}
+
+записываем его в .env как ZOHO_TOKEN
