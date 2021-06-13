@@ -13,8 +13,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     // native php "insert record" function from ZOHO docs https://www.zoho.com/crm/developer/docs/api/v2/insert-records.html
-    // @param array @recordObject
-
     public function send(array $recordObject, string $module)
     {
         $requestBody = array();
